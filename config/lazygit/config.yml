@@ -1,66 +1,66 @@
 customCommands:
-        - key: 'N'
-          description: 'Checkout new branch based on selected commit (named from a Trello card)'
-          prompts:
-                  - type: 'input'
-                    title: 'New branch - what is the URL of the Trello card for which it should be named?'
-                    initialValue: ''
-          command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA={{.SelectedLocalCommit.Sha}}; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
-          context: 'commits'
-          loadingText: 'checking out branch'
-        - key: 'N'
-          description: 'Checkout new branch based on selected branch (named from a Trello card)'
-          prompts:
-                  - type: 'input'
-                    title: 'New branch - what is the URL of the Trello card for which it should be named?'
-                    initialValue: ''
-          command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA=`git show-ref --hash {{.SelectedLocalBranch.Name}} | head -n 1`; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
-          context: 'localBranches'
-          loadingText: 'checking out branch'
-        - key: '<c-c>'
-          description: 'Show output of PR checks using GitHub CLI'
-          context: 'global'
-          subprocess: true
-          command: 'gh pr checks'
-        - key: '<c-d>'
-          description: 'Mark PR ready if its checks pass'
-          context: 'global'
-          subprocess: true
-          command: 'if gh pr checks; then gh pr ready; fi'
-        - key: '<c-t>'
-          description: 'Create or edit PR using GitHub CLI'
-          context: 'global'
-          subprocess: true
-          command: 'if ! gh pr create -d; then gh pr edit; fi'
-        - key: '<c-a>'
-          description: 'Review PR using GitHub CLI'
-          context: 'global'
-          subprocess: true
-          prompts:
-                  - type: "menu"
-                    title: 'Review PR - approve, request changes or just comment?'
-                    options:
-                            - name: 'approve'
-                              value: 'a'
-                            - name: 'request changes'
-                              value: 'r'
-                            - name: 'comment'
-                              value: 'c'
-                  - type: 'input'
-                    title: 'Enter text of comment'
-                    initialValue: ''
-          command: 'if gh pr checks; then gh pr review -{{index .PromptResponses 0}}b "{{index .PromptResponses 1}}"; fi'
-        - key: '<c-g>'
-          description: 'Merge PR using GitHub CLI'
-          context: 'global'
-          subprocess: true
-          command: 'if gh pr checks; then gh pr merge -dm; fi'
-          prompts:
-                  - type: 'menu'
-                    title: 'Are you sure you want to merge this branch?'
-                    options:
-                            - value: 'yes, merge'
-        - key: 'U'
-          description: 'Purge branches that have been merged into master'
-          context: 'localBranches'
-          command: 'git branch --no-color --merged | command grep -vE "^(\*|\s*(main|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+  - key: 'N'
+    description: 'Checkout new branch based on selected commit (named from a Trello card)'
+    prompts:
+      - type: 'input'
+        title: 'New branch - what is the URL of the Trello card for which it should be named?'
+        initialValue: ''
+    command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA={{.SelectedLocalCommit.Sha}}; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
+    context: 'commits'
+    loadingText: 'checking out branch'
+  - key: 'N'
+    description: 'Checkout new branch based on selected branch (named from a Trello card)'
+    prompts:
+      - type: 'input'
+        title: 'New branch - what is the URL of the Trello card for which it should be named?'
+        initialValue: ''
+    command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA=`git show-ref --hash {{.SelectedLocalBranch.Name}} | head -n 1`; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
+    context: 'localBranches'
+    loadingText: 'checking out branch'
+  - key: '<c-c>'
+    description: 'Show output of PR checks using GitHub CLI'
+    context: 'global'
+    subprocess: true
+    command: 'gh pr checks'
+  - key: '<c-d>'
+    description: 'Mark PR ready if its checks pass'
+    context: 'global'
+    subprocess: true
+    command: 'if gh pr checks --watch; then gh pr ready; fi'
+  - key: '<c-t>'
+    description: 'Create or edit PR using GitHub CLI'
+    context: 'global'
+    subprocess: true
+    command: 'if ! gh pr create -d; then gh pr edit; fi'
+  - key: '<c-a>'
+    description: 'Review PR using GitHub CLI'
+    context: 'global'
+    subprocess: true
+    prompts:
+      - type: "menu"
+        title: 'Review PR - approve, request changes or just comment?'
+        options:
+          - name: 'approve'
+            value: 'a'
+          - name: 'request changes'
+            value: 'r'
+          - name: 'comment'
+            value: 'c'
+      - type: 'input'
+        title: 'Enter text of comment'
+        initialValue: ''
+    command: 'if gh pr checks; then gh pr review -{{index .PromptResponses 0}}b "{{index .PromptResponses 1}}"; fi'
+  - key: '<c-g>'
+    description: 'Merge PR using GitHub CLI'
+    context: 'global'
+    subprocess: true
+    command: 'if gh pr checks; then gh pr merge -dm; fi'
+    prompts:
+      - type: 'menu'
+        title: 'Are you sure you want to merge this branch?'
+        options:
+          - value: 'yes, merge'
+  - key: 'U'
+    description: 'Purge branches that have been merged into master'
+    context: 'localBranches'
+    command: 'git branch --no-color --merged | command grep -vE "^(\*|\s*(main|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
