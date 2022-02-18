@@ -1,10 +1,21 @@
+set autowrite                      " Automatically :write before running commands
+set backspace=2                    " Backspace deletes like most programs in insert mode
 set history=500
 set hlsearch                       " Highlight search results
 set ignorecase smartcase           " Search queries intelligently set case
 set incsearch                      " Show search results as you type
+set incsearch                      " do incremental searching
+set laststatus=2                   " Always display the status line
+set modelines=0                    " Disable modelines as a security precaution
+set nobackup
+set nomodeline
+set noswapfile                     " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set nowritebackup
 set number                         " Enable line numbers
+set ruler                          " show the cursor position all the time
 set scrolloff=5                    " Leave 5 lines of buffer when scrolling
-set shiftwidth=2 tabstop=2  	   " Two spaces for tabs everywhere
+set shiftwidth=2 tabstop=2     	   " Two spaces for tabs everywhere
 set showcmd                        " Show size of visual selection
 set sidescrolloff=10               " Leave 10 characters of horizontal buffer when scrolling
 set timeoutlen=1000 ttimeoutlen=0  " Remove timeout when hitting escape
+
