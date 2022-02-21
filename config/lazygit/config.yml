@@ -64,3 +64,12 @@ customCommands:
     description: 'Purge branches that have been merged into master'
     context: 'localBranches'
     command: 'git branch --no-color --merged | command grep -vE "^(\*|\s*(main|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+  - key: 'U'
+    description: 'Prune references to branches no longer on remote'
+    context: 'remotes'
+    command: 'git remote prune {{.SelectedRemote.Name}}'
+  - key: 'U'
+    description: 'Prune references to branches no longer on remote'
+    context: 'remoteBranches'
+    command: 'git remote prune {{.SelectedRemote.Name}}'
+
