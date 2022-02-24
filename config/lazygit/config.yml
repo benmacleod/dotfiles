@@ -32,6 +32,11 @@ customCommands:
     context: 'global'
     subprocess: true
     command: 'if ! gh pr create -d; then gh pr edit; fi'
+  - key: '<c-v>'
+    description: 'View PR using GitHub CLI'
+    context: 'global'
+    subprocess: true
+    command: 'gh pr view'
   - key: '<c-a>'
     description: 'Review PR using GitHub CLI'
     context: 'global'
