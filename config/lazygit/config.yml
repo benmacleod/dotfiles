@@ -21,7 +21,7 @@ customCommands:
     description: 'Show output of PR checks using GitHub CLI'
     context: 'global'
     subprocess: true
-    command: 'gh pr checks'
+    command: 'gh pr checks --watch'
   - key: '<c-d>'
     description: 'Mark PR ready if its checks pass'
     context: 'global'
@@ -54,12 +54,12 @@ customCommands:
       - type: 'input'
         title: 'Enter text of comment'
         initialValue: ''
-    command: 'if gh pr checks; then gh pr review -{{index .PromptResponses 0}}b "{{index .PromptResponses 1}}"; fi'
+    command: 'if gh pr checks --watch; then gh pr review -{{index .PromptResponses 0}}b "{{index .PromptResponses 1}}"; fi'
   - key: '<c-g>'
     description: 'Merge PR using GitHub CLI'
     context: 'global'
     subprocess: true
-    command: 'if gh pr checks; then gh pr merge -dm; fi'
+    command: 'if gh pr checks --watch; then gh pr merge -dm; fi'
     prompts:
       - type: 'menu'
         title: 'Are you sure you want to merge this branch?'
