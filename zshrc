@@ -45,3 +45,7 @@ if [ -f '/home/ben/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/ben/goo
 # https://stackoverflow.com/a/70555005/85000
 export LD_LIBRARY_PATH=/usr/local/lib
 
+# Load autocompletions
+# https://cli.github.com/manual/gh_completion
+autoload -U compinit
+compinit -i
