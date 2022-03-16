@@ -8,7 +8,7 @@
   "auto-comment-blocks.hashStyleBlocks": ["ruby"],
   "auto-comment-blocks.singleLineBlockOnEnter": true,
   "bustagem.cmd.bundle": "sudo bundle show --paths",
-  "docker.host": "tcp://192.168.20.19:2375",
+  "docker.host": "tcp://jordi.local:2375",
   "editor.accessibilitySupport": "off",
   "editor.fontFamily": "MonoLisa,JetBrains Mono,Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 10,
