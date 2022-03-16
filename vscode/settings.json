@@ -5,9 +5,7 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "auto-comment-blocks.hashStyleBlocks": [
-    "ruby"
-  ],
+  "auto-comment-blocks.hashStyleBlocks": ["ruby"],
   "auto-comment-blocks.singleLineBlockOnEnter": true,
   "bustagem.cmd.bundle": "sudo bundle show --paths",
   "docker.host": "tcp://192.168.20.19:2375",
@@ -19,10 +17,7 @@
   "editor.guides.bracketPairs": "active",
   "editor.inlineSuggest.enabled": true,
   "editor.minimap.enabled": false,
-  "editor.rulers": [
-    100,
-    120
-  ],
+  "editor.rulers": [100, 120],
   "editor.tabSize": 2,
   "eslint.codeActionsOnSave.mode": "problems",
   "files.autoSave": "afterDelay",
