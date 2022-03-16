@@ -62,5 +62,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.colorTheme": "Darcula Theme from IntelliJ",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "workbench.experimental.layoutControl.enabled": true
 }
