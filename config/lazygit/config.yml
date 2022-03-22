@@ -62,7 +62,7 @@ customCommands:
     command: 'if gh pr checks --watch; then gh pr merge -dm; fi'
     prompts:
       - type: 'menu'
-        title: 'Are you sure you want to merge this branch?'
+        title: 'Are you sure you want to merge {{.SelectedLocalBranch.Name}} into main?'
         options:
           - value: 'yes, merge'
   - key: 'U'
