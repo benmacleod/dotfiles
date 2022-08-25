@@ -8,7 +8,7 @@
   "auto-comment-blocks.hashStyleBlocks": ["ruby"],
   "auto-comment-blocks.singleLineBlockOnEnter": true,
   "bustagem.cmd.bundle": "sudo bundle show --paths",
-  "docker.host": "tcp://jordi.local:2375",
+  //"docker.host": "tcp://jordi.local:2375",
   "editor.accessibilitySupport": "off",
   "editor.fontFamily": "MonoLisa,JetBrains Mono,Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 10,
@@ -28,8 +28,19 @@
     "plaintext": false,
     "yaml": true
   },
+  "github.codespaces.defaultExtensions": [
+    "castwide.solargraph",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "GitHub.copilot",
+    "GitHub.vscode-pull-request-github",
+    "gitkraken.gitkraken-authentication",
+    "gurgeous.bust-a-gem",
+    "misogi.ruby-rubocop"
+  ],
   "jest.autoRun": {
-    "onSave": "test-file",
+    "onSave": "test-src-file",
     "watch": false
   },
   "markdown.preview.breaks": true,
@@ -60,8 +71,23 @@
   "vim.highlightedyank.enable": true,
   "vim.textwidth": 100,
   "vsicons.dontShowNewVersionMessage": true,
-  "workbench.colorTheme": "Darcula Theme from IntelliJ",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none",
-  "workbench.experimental.layoutControl.enabled": true
+  "workbench.experimental.layoutControl.enabled": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.linkedEditing": true,
+  "codestream.serverUrl": "https://api.codestream.com",
+  "codestream.email": "ben.j.macleod@gmail.com",
+  "redhat.telemetry.enabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "githubPullRequests.pushBranch": "always",
+  "githubPullRequests.pullBranch": "never",
+  "task.problemMatchers.neverPrompt": {
+    "shell": true
+  },
+  "workbench.colorTheme": "Darcula Theme from IntelliJ",
+  "window.zoomLevel": -1
 }
