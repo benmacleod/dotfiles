@@ -17,6 +17,9 @@ sudo apt update && \
   sudo apt-get purge -y && \
   sudo apt-get clean && rm -r /var/lib/apt/lists/*
 
+# Install Ruby gems
+$SCRIPT_DIR/ruby/install.sh
+
 # Set up vim
 cp $SCRIPT_DIR/vim/vimrc ~/.vimrc
 echo -e "# Set vim as default editor\nexport EDITOR=vim" | sudo tee -a /etc/profile.d/vim.sh > /dev/null
