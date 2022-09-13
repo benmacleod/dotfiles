@@ -9,9 +9,16 @@ LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/re
 curl -Lo /tmp/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 sudo tar xf /tmp/lazygit.tar.gz -C /usr/local/bin lazygit
 
+# Install the keys for the GitHub CLI (gh)
+# https://cli.github.com/manual/installation#linux
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+
 # Install desired Ubuntu packages
 sudo apt update && \
   sudo apt install -y --no-install-recommends \
+    gh \
     vim \
     && \
   sudo apt-get purge -y && \
