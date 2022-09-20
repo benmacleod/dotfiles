@@ -29,7 +29,6 @@ $SCRIPT_DIR/ruby/install.sh
 
 # Set up vim
 cp $SCRIPT_DIR/vim/vimrc ~/.vimrc
-echo -e "# Set vim as default editor\nexport EDITOR=vim" | sudo tee -a /etc/profile.d/vim.sh > /dev/null
 
 # Set up lazygit
 mkdir -p ~/.config/lazygit

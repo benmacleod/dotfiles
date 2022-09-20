@@ -9,3 +9,7 @@ done
 
 # Set some preferences
 sed -i -e "/:prezto:module:prompt/ s/theme '\(.*\)'/theme 'steeef'/" ~/.zprezto/runcoms/zpreztorc
+
+# Set vim as default editor
+echo "export EDITOR=vim" >> ~/.zshrc
+echo "export VISUAL=vim" >> ~/.zshrc
