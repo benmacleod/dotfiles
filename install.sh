@@ -19,6 +19,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 sudo apt update && \
   sudo apt install -y --no-install-recommends \
     gh \
+    inetutils-ping \
     vim \
     && \
   sudo apt-get purge -y && \
