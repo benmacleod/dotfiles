@@ -10,6 +10,8 @@ done
 # Set some preferences
 sed -i -e "/:prezto:module:prompt/ s/theme '\(.*\)'/theme 'steeef'/" ~/.zprezto/runcoms/zpreztorc
 
-# Set vim as default editor
-echo "export EDITOR=vim" >> ~/.zshrc
-echo "export VISUAL=vim" >> ~/.zshrc
+# Set VS Code as the default editor
+EDITOR="code -w"
+echo "export GIT_EDITOR=\"${EDITOR}\"" >> ~/.zshrc
+echo "export EDITOR=\"${EDITOR}\"" >> ~/.zshrc
+echo "export VISUAL=\"${EDITOR}\"" >> ~/.zshrc
