@@ -35,10 +35,9 @@ cp $SCRIPT_DIR/vim/vimrc ~/.vimrc
 mkdir -p ~/.config/lazygit
 cp $SCRIPT_DIR/config/lazygit/config.yml ~/.config/lazygit/
 
-# Copy scripts for installing zsh and prezto, but don't run them because zsh installs interactively
+# Install zsh and prezto
 cp $SCRIPT_DIR/zsh/install_zsh.sh /tmp/install_zsh.sh
 cp $SCRIPT_DIR/zsh/install_prezto.zsh /tmp/install_prezto.zsh
 chmod +x /tmp/install_zsh.sh
 chmod +x /tmp/install_prezto.zsh
-
-echo "To install zsh and prezto, run /tmp/install_zsh.sh"
+/tmp/install_zsh.sh
