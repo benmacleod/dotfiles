@@ -15,3 +15,6 @@ EDITOR="code -w"
 echo "export GIT_EDITOR=\"${EDITOR}\"" >> ~/.zshrc
 echo "export EDITOR=\"${EDITOR}\"" >> ~/.zshrc
 echo "export VISUAL=\"${EDITOR}\"" >> ~/.zshrc
+
+# Set up alias for lazygit
+echo "alias lg='lazygit'" >> ~/.zshrc
