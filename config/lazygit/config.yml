@@ -1,22 +1,24 @@
+x-checkout-by-trello-card: &x-checkout-by-trello-card
+  description: 'Checkout new branch based on selected commit (named from a Trello card)'
+  prompts:
+    - type: 'input'
+      title: 'New branch - what is the URL of the Trello card for which it should be named?'
+      initialValue: ''
+  loadingText: 'checking out branch'
+
+x-prune-references: &x-prune-references
+  description: 'Prune references to branches no longer on remote'
+  command: 'git remote prune {{.SelectedRemote.Name}}'
+
 customCommands:
   - key: 'N'
-    description: 'Checkout new branch based on selected commit (named from a Trello card)'
-    prompts:
-      - type: 'input'
-        title: 'New branch - what is the URL of the Trello card for which it should be named?'
-        initialValue: ''
     command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA={{.SelectedLocalCommit.Sha}}; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
     context: 'commits'
-    loadingText: 'checking out branch'
+    <<: *x-checkout-by-trello-card
   - key: 'N'
-    description: 'Checkout new branch based on selected branch (named from a Trello card)'
-    prompts:
-      - type: 'input'
-        title: 'New branch - what is the URL of the Trello card for which it should be named?'
-        initialValue: ''
     command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA=`git show-ref --hash {{.SelectedLocalBranch.Name}} | head -n 1`; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
     context: 'localBranches'
-    loadingText: 'checking out branch'
+    <<: *x-checkout-by-trello-card
   - key: '<c-c>'
     description: 'Show output of PR checks using GitHub CLI'
     context: 'global'
@@ -70,11 +72,8 @@ customCommands:
     context: 'localBranches'
     command: 'git branch --no-color --merged | command grep -vE "^(\*|\s*(main|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
   - key: 'U'
-    description: 'Prune references to branches no longer on remote'
     context: 'remotes'
-    command: 'git remote prune {{.SelectedRemote.Name}}'
+    <<: *x-prune-references
   - key: 'U'
-    description: 'Prune references to branches no longer on remote'
     context: 'remoteBranches'
-    command: 'git remote prune {{.SelectedRemote.Name}}'
-
+    <<: *x-prune-references
