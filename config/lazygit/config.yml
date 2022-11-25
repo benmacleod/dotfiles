@@ -19,6 +19,10 @@ customCommands:
     command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA=`git show-ref --hash {{.SelectedLocalBranch.Name}} | head -n 1`; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
     context: 'localBranches'
     <<: *x-checkout-by-trello-card
+  - key: 'N'
+    command: "BRANCH=`echo {{index .PromptResponses 0}} | sed -E 's/^(.*\\/([^/]+))$/\\2/'`; BASE_SHA=`git show-ref --hash {{.SelectedRemoteBranch.Name}} | head -n 1`; git checkout -b $BRANCH $BASE_SHA; git push -u origin $BRANCH"
+    context: 'remoteBranches'
+    <<: *x-checkout-by-trello-card
   - key: '<c-c>'
     description: 'Show output of PR checks using GitHub CLI'
     context: 'global'
