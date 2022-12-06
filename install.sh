@@ -41,3 +41,6 @@ cp $SCRIPT_DIR/zsh/install_prezto.zsh /tmp/install_prezto.zsh
 chmod +x /tmp/install_zsh.sh
 chmod +x /tmp/install_prezto.zsh
 /tmp/install_zsh.sh
+
+# Install common gitingore file
+cp $SCRIPT_DIR/git/gitignore ~/.gitignore
