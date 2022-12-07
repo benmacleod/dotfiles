@@ -18,6 +18,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 # Install desired Ubuntu packages
 sudo apt update && \
   sudo apt install -y --no-install-recommends \
+    dnsutils \
     gh \
     inetutils-ping \
     vim \
