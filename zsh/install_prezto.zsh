@@ -18,3 +18,7 @@ echo "export VISUAL=\"${EDITOR}\"" >> ~/.zshrc
 
 # Set up alias for lazygit
 echo "alias lg='lazygit'" >> ~/.zshrc
+
+echo "# Ensure we use the gcloud auth plugin for kubectl" >> ~/.zshrc
+echo "# https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke" >> ~/.zshrc
+echo "export USE_GKE_GCLOUD_AUTH_PLUGIN=True" >> ~/.zshrc
