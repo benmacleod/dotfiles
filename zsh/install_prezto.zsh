@@ -10,13 +10,13 @@ done
 # Set some preferences
 sed -i -e "/:prezto:module:prompt/ s/theme '\(.*\)'/theme 'steeef'/" ~/.zprezto/runcoms/zpreztorc
 
-# Set VS Code as the default editor
+echo "# Set VS Code as the default editor" >> ~/.zshrc
 EDITOR="code -w"
 echo "export GIT_EDITOR=\"${EDITOR}\"" >> ~/.zshrc
 echo "export EDITOR=\"${EDITOR}\"" >> ~/.zshrc
 echo "export VISUAL=\"${EDITOR}\"" >> ~/.zshrc
 
-# Set up alias for lazygit
+echo "# Set up alias for lazygit" >> ~/.zshrc
 echo "alias lg='lazygit'" >> ~/.zshrc
 
 echo "# Ensure we use the gcloud auth plugin for kubectl" >> ~/.zshrc
