@@ -22,3 +22,6 @@ echo "alias lg='lazygit'" >> ~/.zshrc
 echo "# Ensure we use the gcloud auth plugin for kubectl" >> ~/.zshrc
 echo "# https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke" >> ~/.zshrc
 echo "export USE_GKE_GCLOUD_AUTH_PLUGIN=True" >> ~/.zshrc
+
+echo "# Set up autocomplete for kubectl" >> ~/.zshrc
+echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
