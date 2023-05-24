@@ -21,6 +21,7 @@ sudo apt update && \
     dnsutils \
     gh \
     inetutils-ping \
+    lsof \
     vim \
     && \
   sudo apt-get purge -y && \
