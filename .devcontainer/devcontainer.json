@@ -1,0 +1,8 @@
+{
+  // Devcontainer build properties
+  // https://containers.dev/implementors/json_reference/#image-specific
+  "image": "us-docker.pkg.dev/tc-platform-artifacts/theconversation/dev-env:latest",
+  "runArgs": [
+    "--add-host=host.docker.internal:host-gateway"
+  ]
+}
