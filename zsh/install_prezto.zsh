@@ -27,4 +27,4 @@ echo "# Set up autocomplete for kubectl" >> ~/.zshrc
 echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
 
 echo "# Ensure npm's global bin dir is in our PATH" >> ~/.zshrc
-echo "export PATH=\"\$PATH:\$(npm bin -g 2>/dev/null)\"" >> ~/.zshrc
+echo "export PATH=\"\$PATH:\$(npm config get prefix 2>/dev/null)/bin\"" >> ~/.zshrc
