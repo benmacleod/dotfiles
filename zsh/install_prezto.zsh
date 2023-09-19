@@ -28,3 +28,8 @@ echo "[[ $commands[kubectl] ]] && source <(kubectl completion zsh)" >> ~/.zshrc
 
 echo "# Ensure npm's global bin dir is in our PATH" >> ~/.zshrc
 echo "export PATH=\"\$PATH:\$(npm config get prefix 2>/dev/null)/bin\"" >> ~/.zshrc
+
+echo "# Set the DISPLAY environment variable so GUI apps can connect to the host" >> ~/.zshrc
+echo "export DISPLAY=\"host.docker.internal:0\"" >> ~/.zshrc
+echo "# So we can connect to a bastion proxy running on the host" >> ~/.zshrc
+echo "export BASTION_PROXY=\"host.docker.internal:8888\"" >> ~/.zshrc
